@@ -1,6 +1,45 @@
+# Project information
 site_name: PandaTeams Documents
+site_description: 'Documentações da equipe PandaTeams'
+site_author: 'PandaTeams'
+site_url: 'https://squidfunk.github.io/mkdocs-material/'
+
+# Repository
+repo_name: 'pandateams/docs'
+repo_url: 'https://github.com/pandateams/docs'
+
+# Copyright
+copyright: 'Copyright &copy; 2019 PandaTeams'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'pt'
+  logo: 'assets/panda.png'
+  favicon: 'assets/panda.png'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+# Navigation
 nav:
     - Home: index.md
     - Fluxo de Desenvolvimento: fluxo-desenvolvimento.md
     - Documentações: documentacao.md
-theme: readthedocs
+
+# Customization
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/pandateams'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
