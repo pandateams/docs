@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Fluxo de Desenvolvimento - PandaTeams Documents</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Fluxo de Desenvolvimento";
+    var mkdocs_page_input_path = "fluxo-desenvolvimento.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PandaTeams Documents</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Fluxo de Desenvolvimento</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#fluxo-de-desenvolvimento-da-equipe">Fluxo de Desenvolvimento da equipe</a></li>
+    
+
+    <li class="toctree-l2"><a href="#trabalhe-na-branch-correta">Trabalhe na branch correta</a></li>
+    
+
+    <li class="toctree-l2"><a href="#adicione-suas-credenciais">Adicione suas credenciais</a></li>
+    
+
+    <li class="toctree-l2"><a href="#rodando-o-projeto-com-docker-compose">Rodando o projeto com Docker Compose</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../docker/">Docker</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PandaTeams Documents</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Fluxo de Desenvolvimento</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h4 id="fluxo-de-desenvolvimento-da-equipe">Fluxo de Desenvolvimento da equipe</h4>
+<ul>
+<li><strong>master</strong> - Branch utilizado somente para funcionalidades já testadas e aprovadas pelo cliente</li>
+<li>
+<p><strong>develop</strong> - Branch que consiste no desenvolvimento atual da equipe</p>
+</li>
+<li>
+<p><strong>features</strong> - Demais funcionalidades que estão sendo desenvolvidas</p>
+</li>
+</ul>
+<p><img alt="alt text" src="https://www.bitbull.it/blog/git-flow-come-funziona/gitflow-1.png" title="GitFlow" />
+<strong>fonte</strong>: https://www.bitbull.it/blog/git-flow-come-funziona/gitflow-1.png</p>
+<p><strong>SEMPRE</strong>:
+* Para novas funcionalidades utilize: feature/nome_da_func
+* Para melhorias no codigo: bugfix/nome_da_correcao</p>
+<hr />
+<h4 id="trabalhe-na-branch-correta">Trabalhe na branch correta</h4>
+<p>Para visualizar todas as branches:</p>
+<pre><code class="sh">    git branch -a
+</code></pre>
+
+<p>Utilize uma branch já existente:</p>
+<pre><code class="sh">    git checkout &lt;nome_da_branch&gt;
+</code></pre>
+
+<p>Ou crie uma nova para a sua funcionalidade:</p>
+<pre><code class="sh">    git checkout -b &lt;nome_da_branch&gt;
+
+    &lt;Exemplo&gt;
+    git checkout -b DBconnection
+</code></pre>
+
+<p>Certifique-se de que sua branch está atualizada:</p>
+<pre><code class="sh">    git pull origin &lt;nome_da_branch_mais_att&gt;
+
+    &lt;Exemplo&gt;
+    git pull origin develop
+</code></pre>
+
+<hr />
+<h4 id="adicione-suas-credenciais">Adicione suas credenciais</h4>
+<p>Para trabalhar com o projeto, crie um arquivo chamado .env na raiz do diretorio, e
+adicione as credenciais fornecidas pela <strong>equipe de desenvolvimento</strong>.</p>
+<hr />
+<h4 id="rodando-o-projeto-com-docker-compose">Rodando o projeto com Docker Compose</h4>
+<p>Docker é uma tecnologia que fornece containers que isolam processos, com a ajuda do Docker Compose é possível orquestrar containers e subir aplicações complexas com poucos comandos.</p>
+<p>Instalação do Docker no Windows: <a href="https://docs.docker.com/docker-for-windows/install/">https://docs.docker.com/docker-for-windows/install/</a></p>
+<p>Instalação do Docker Compose no Linux: <a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+<p><strong>Iniciando o projeto</strong></p>
+<p>Atualize o repositorio local</p>
+<pre><code class="sh">    git pull origin develop
+</code></pre>
+
+<p>Para iniciar o projeto:</p>
+<pre><code class="sh">    docker-compose up
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../docker/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
