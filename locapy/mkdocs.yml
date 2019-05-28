@@ -2,5 +2,5 @@ site_name: PandaTeams Documents
 nav:
     - Home: index.md
     - Fluxo de Desenvolvimento: fluxo-desenvolvimento.md
-    - Docker: docker.md
+    - Documentações: documentacao.md
 theme: readthedocs
