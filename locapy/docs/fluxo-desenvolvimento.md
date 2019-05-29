@@ -2,6 +2,18 @@
 
 A equipe optou por utilizar algumas cerimônias ágeis e o quadro Kanban para acompanhar o trabalho, realizando Sprints de 2 semanas.
 
+## Papéis
+
+Os papéis dentro da equipe são:
+
+**PO** - Por definição, deveria haver alguém que fizesse esse papel, porém devido a falta de recursos a equipe optou que todos nós fizéssemos o papel de PO.
+
+**Scrum Master** - Lucas Siqueira
+
+**Time de desenvolvimento** - Bruno Lima, Lucas Araújo e Oseas Fernandes
+
+**Time de negócios** - César Augusto, Lucas Siqueira e Vinicius Tavares 
+
 ## Cerimônias
 
 As cerimônias utilizadas são, por ondem cronológica:
@@ -33,24 +45,27 @@ https://trello.com/b/Regw3bNx/locapy-sprint-n%C3%A3o-definida
 
 **DEPLOY** - Representa a etapa em que uma release será fechada e o código entrará em produção, é importante criar uma tag no Git com o número da versão.
 
+## Gitflow
 
+### Branchs
 
-## Github
+Utilizamos o Git como ferramenta de versionamento de código e o Github para hospedar o código desenvolvido. 
+Definições de Branch's:
+ 
+* **master** - Branch utilizado somente para funcionalidades já testadas e aprovadas pelo cliente.
 
-* **master** - Branch utilizado somente para funcionalidades já testadas e aprovadas pelo cliente
-* **develop** - Branch que consiste no desenvolvimento atual da equipe
+* **develop** - Branch que contém o código em desenvolvimento da equipe, todas as novas Branchs serão criadas a partir de develop. 
 
-* **features** - Demais funcionalidades que estão sendo desenvolvidas
+* **feature** - Demais funcionalidades que estão sendo desenvolvidas, os nomes das Branchs que representam novas funcionalidades serão correspondentes ao código das estórias do Kanban. Ex: feature/pt-01
 
+* **bugfix** - Correções de bugs que estão sendo desenvolvidas, os nomes das Branchs que representam correções de problemas serão correspondentes ao código das estórias do Kanban, caso não existam estórias o nome deve condizer a qual problema o código resolverá.
+Ex: bugfix/pt-03
+Ex: bugfix/correcao-bug-cadastro
+
+Sempre que uma nova branch é criada, deve ser criada a partir de develop, pois o código não deve conter dependências de outras funcionalidades que estejam sendo desenvolvidas. Quando o código é colocado para revisão, apenas o que é pertinente a estória em questão deve ser mergeado.
 
 ![alt text](https://www.bitbull.it/blog/git-flow-come-funziona/gitflow-1.png "GitFlow")
 __fonte__: https://www.bitbull.it/blog/git-flow-come-funziona/gitflow-1.png
-
-**SEMPRE**:
-* Para novas funcionalidades utilize: feature/nome_da_func
-* Para melhorias no codigo: bugfix/nome_da_correcao
-
----
 
 
 #### Trabalhe na branch correta
@@ -71,7 +86,7 @@ Ou crie uma nova para a sua funcionalidade:
     git checkout -b <nome_da_branch>
 
     <Exemplo>
-    git checkout -b DBconnection
+    git checkout -b feature/pt-01
 ```
 
 Certifique-se de que sua branch está atualizada:
@@ -81,32 +96,85 @@ Certifique-se de que sua branch está atualizada:
     <Exemplo>
     git pull origin develop
 ```
----
 
-## Rodando o projeto local
+### Pull Requests
 
-#### Adicione suas credenciais
-Para trabalhar com o projeto, crie um arquivo chamado .env na raiz do diretorio, e
-adicione as credenciais fornecidas pela **equipe de desenvolvimento**.
+Sempre que um código está sendo desenvolvido deve-se criar um PR(Pull Request) com o código e nome da estória, descrevendo o que está sendo desenvolvido.
 
+Exemplo: [PT-01] Eu como locador, quero cadastrar minhas salas, de modo que meus locatários consigam obter informações para alugar
 
----
-#### Utilizando Docker
+O responsável pela tarefa deve abrir o PR e ser responsável pela manutenção dele até que o código seja mergeado. 
 
-Docker é uma tecnologia que fornece containers que isolam processos, com a ajuda do Docker Compose é possível orquestrar containers e subir aplicações complexas com poucos comandos.
+#### Labels
+Labels são rótulos que descrevem o andamento do código no fluxo de trabalho da equipe relacionando Github com o quadro Kanban: 
 
-Instalação do Docker no Windows: [https://docs.docker.com/docker-for-windows/install/](https://docs.docker.com/docker-for-windows/install/)
+* **Em desenvolvimento** - Label que relaciona a situação do código com a coluna de mesmo nome no Kanban. Códigos com essa Label não podem ser revisados até que o responsável atualize a situação.
 
-Instalação do Docker Compose no Linux: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+* **Code Review** - Label que relaciona a situação do código com a coluna de mesmo nome no Kanban. Códigos com essa Label devem ser revisados por no mínimo 2 membros da equipe que não participaram do desenvolvimento da solução. Se o PR for aprovado **NÃO** realize o merge.
 
-**Iniciando o projeto**
+* **Revisão** - Label que relaciona a situação do código com a coluna de mesmo nome no Kanban. Códigos com essa Label devem ser revisados a nível de usuário pelos membros da equipe, portanto, o responsável pela tarefa deve fazer o deploy da solução no ambiente de desenvolvimento. Se a solução for aprovada **NÃO** realize o merge.
 
-Atualize o repositorio local
+*  **Aguardando Deploy** - Label que relaciona a situação do código com a coluna de mesmo nome no Kanban. Códigos com essa Label devem permanecer assim até que a equipe decida realizar o empacotamento de uma nova release. **NÃO** realize o merge.
+
+* **Deploy** - Label que relaciona a situação do código com a coluna de mesmo nome no Kanban. Códigos com essa Label devem ser mergeados em develop para gerar uma nova release.
+
+### Code Review
+Para garantir que o código foi revisado, temos uma trava no Github que só permite que um código entre em develop depois que for aprovado por 2 membros da equipe. 
+Ao revisar o código o desenvolvedor deve se atentar com:
+
+* Se o código está funcional
+* Se o código está com uma boa qualidade
+* Se segue as convenções de PEP8 (python)
+* Se é pythonico, no caso do backend.
+* Se as funções estão documentadas (Numpy)
+
+Se todos os requisitos acima estiverem dentro do esperado, o desenvolvedor deve aprovar a solução. 
+
+### Tags 
+Tags deverão ser geradas quando uma nova release está sendo gerada, ou seja quando códigos desenvolvidos pela equipe se tornarão disponíveis para uso em produção. 
+Após a estória for aprovada para o deploy, criamos releases utilizando o seguinte versionamento semântico:
+
+MAJOR.MINOR.PATCH
+
+* Versão Maior(MAJOR): 
+Quando fizer mudanças incompatíveis na API.
+
+* Versão Menor(MINOR): 
+Quando adicionar funcionalidades mantendo compatibilidade.
+
+* Versão de Correção(PATCH): 
+Quando corrigir falhas mantendo compatibilidade.
+
+Exemplo: Começamos o sistema e desenvolvemos uma funcionalidade de login. TAG: 0.1.0
+
+Exemplo: Corrigimos um bug no envio da senha do login.
+TAG: 0.1.1
+
+Exemplo: Mudamos a versão do Django de 1.x para 2.x, portanto o sistema quebrou por compatibilidade de versão. 
+TAG: 1.1.1
+
+Para ver mais: 
+https://semver.org/lang/pt-BR/
+
+Trabalhando com tags: 
+
+Listando tags:
 ```sh
-    git pull origin develop
+    git tag
 ```
-Para iniciar o projeto:
 
+Criando tags:
 ```sh
-    docker-compose up
+     git tag <numero-versao>
 ```
+
+Detalhando uma tag:
+```sh
+    git show <numero-versao>
+```
+
+Subindo tags para o Github:
+```sh
+    git push origin --tags
+```
+
