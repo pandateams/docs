@@ -12,7 +12,7 @@ Os papéis dentro da equipe são:
 
 **Time de desenvolvimento** - Bruno Lima, Lucas Araújo e Oseas Fernandes
 
-**Time de negócios** - César Augusto, Lucas Siqueira e Vinicius Tavares 
+**Time de negócios** - César Augusto, Lucas Siqueira e Vinicius Tavares
 
 ## Cerimônias
 
@@ -49,12 +49,12 @@ https://trello.com/b/Regw3bNx/locapy-sprint-n%C3%A3o-definida
 
 ### Branchs
 
-Utilizamos o Git como ferramenta de versionamento de código e o Github para hospedar o código desenvolvido. 
+Utilizamos o Git como ferramenta de versionamento de código e o Github para hospedar o código desenvolvido.
 Definições de Branch's:
- 
+
 * **master** - Branch utilizado somente para funcionalidades já testadas e aprovadas pelo cliente.
 
-* **develop** - Branch que contém o código em desenvolvimento da equipe, todas as novas Branchs serão criadas a partir de develop. 
+* **develop** - Branch que contém o código em desenvolvimento da equipe, todas as novas Branchs serão criadas a partir de develop.
 
 * **feature** - Demais funcionalidades que estão sendo desenvolvidas, os nomes das Branchs que representam novas funcionalidades serão correspondentes ao código das estórias do Kanban. Ex: feature/pt-01
 
@@ -103,10 +103,10 @@ Sempre que um código está sendo desenvolvido deve-se criar um PR(Pull Request)
 
 Exemplo: [PT-01] Eu como locador, quero cadastrar minhas salas, de modo que meus locatários consigam obter informações para alugar
 
-O responsável pela tarefa deve abrir o PR e ser responsável pela manutenção dele até que o código seja mergeado. 
+O responsável pela tarefa deve abrir o PR e ser responsável pela manutenção dele até que o código seja mergeado.
 
 #### Labels
-Labels são rótulos que descrevem o andamento do código no fluxo de trabalho da equipe relacionando Github com o quadro Kanban: 
+Labels são rótulos que descrevem o andamento do código no fluxo de trabalho da equipe relacionando Github com o quadro Kanban:
 
 * **Em desenvolvimento** - Label que relaciona a situação do código com a coluna de mesmo nome no Kanban. Códigos com essa Label não podem ser revisados até que o responsável atualize a situação.
 
@@ -119,7 +119,7 @@ Labels são rótulos que descrevem o andamento do código no fluxo de trabalho d
 * **Deploy** - Label que relaciona a situação do código com a coluna de mesmo nome no Kanban. Códigos com essa Label devem ser mergeados em develop para gerar uma nova release.
 
 ### Code Review
-Para garantir que o código foi revisado, temos uma trava no Github que só permite que um código entre em develop depois que for aprovado por 2 membros da equipe. 
+Para garantir que o código foi revisado, temos uma trava no Github que só permite que um código entre em develop depois que for aprovado por 2 membros da equipe.
 Ao revisar o código o desenvolvedor deve se atentar com:
 
 * Se o código está funcional
@@ -128,21 +128,21 @@ Ao revisar o código o desenvolvedor deve se atentar com:
 * Se é pythonico, no caso do backend.
 * Se as funções estão documentadas (Numpy)
 
-Se todos os requisitos acima estiverem dentro do esperado, o desenvolvedor deve aprovar a solução. 
+Se todos os requisitos acima estiverem dentro do esperado, o desenvolvedor deve aprovar a solução.
 
-### Tags 
-Tags deverão ser geradas quando uma nova release está sendo gerada, ou seja quando códigos desenvolvidos pela equipe se tornarão disponíveis para uso em produção. 
+### Tags
+Tags deverão ser geradas quando uma nova release está sendo gerada, ou seja quando códigos desenvolvidos pela equipe se tornarão disponíveis para uso em produção.
 Após a estória for aprovada para o deploy, criamos releases utilizando o seguinte versionamento semântico:
 
 MAJOR.MINOR.PATCH
 
-* Versão Maior(MAJOR): 
+* Versão Maior(MAJOR):
 Quando fizer mudanças incompatíveis na API.
 
-* Versão Menor(MINOR): 
+* Versão Menor(MINOR):
 Quando adicionar funcionalidades mantendo compatibilidade.
 
-* Versão de Correção(PATCH): 
+* Versão de Correção(PATCH):
 Quando corrigir falhas mantendo compatibilidade.
 
 Exemplo: Começamos o sistema e desenvolvemos uma funcionalidade de login. TAG: 0.1.0
@@ -150,13 +150,13 @@ Exemplo: Começamos o sistema e desenvolvemos uma funcionalidade de login. TAG: 
 Exemplo: Corrigimos um bug no envio da senha do login.
 TAG: 0.1.1
 
-Exemplo: Mudamos a versão do Django de 1.x para 2.x, portanto o sistema quebrou por compatibilidade de versão. 
+Exemplo: Mudamos a versão do Django de 1.x para 2.x, portanto o sistema quebrou por compatibilidade de versão.
 TAG: 1.1.1
 
-Para ver mais: 
+Para ver mais:
 https://semver.org/lang/pt-BR/
 
-Trabalhando com tags: 
+Trabalhando com tags:
 
 Listando tags:
 ```sh
@@ -177,4 +177,3 @@ Subindo tags para o Github:
 ```sh
     git push origin --tags
 ```
-

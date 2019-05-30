@@ -28,7 +28,12 @@ theme:
 nav:
     - Home: index.md
     - Fluxo de Desenvolvimento: fluxo-desenvolvimento.md
+    - Nossos Projetos: projetos.md
+    - Locapy:
+      - Sobre o projeto: sobre-locapy.md
+      - Arquitetura: locapy-arquitetura.md
     - Documentações: documentacao.md
+    - Sobre nós: sobre-nos.md
 
 # Customization
 extra:
