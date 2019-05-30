@@ -11,7 +11,27 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://squidfunk.github.io/mkdocs-material/projetos/</loc>
+     <lastmod>2019-05-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://squidfunk.github.io/mkdocs-material/sobre-locapy/</loc>
+     <lastmod>2019-05-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://squidfunk.github.io/mkdocs-material/locapy-arquitetura/</loc>
+     <lastmod>2019-05-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://squidfunk.github.io/mkdocs-material/documentacao/</loc>
+     <lastmod>2019-05-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://squidfunk.github.io/mkdocs-material/sobre-nos/</loc>
      <lastmod>2019-05-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
