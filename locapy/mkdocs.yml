@@ -32,6 +32,7 @@ nav:
     - Locapy:
       - Sobre o projeto: sobre-locapy.md
       - Arquitetura: locapy-arquitetura.md
+      - Banco de dados: locapy-banco-de-dados.md
     - Documentações: documentacao.md
     - Sobre nós: sobre-nos.md
 
